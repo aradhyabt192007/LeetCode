@@ -1,10 +1,15 @@
+#include <stdbool.h>
+
 bool isPalindrome(int x) {
     if (x < 0 || x != 0 && x % 10 == 0)
         return false;
-    int check = 0;
-    while (x > check) {
-        check = check * 10 + x % 10;
+
+    int reverse = 0;
+
+    while (x > reverse) {
+        reverse = reverse * 10 + x % 10;
         x /= 10;
     }
-    return (x == check || x == check / 10);
+
+    return (x == reverse || x == reverse / 10);
 }
